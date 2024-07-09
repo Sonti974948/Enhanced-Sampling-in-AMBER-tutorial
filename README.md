@@ -19,5 +19,18 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
      ````plumedfile="plumed.dat" ! Name of the plumed.dat which AMBER has to access````
 3. To run the simulation after preparing all the files, run ````sbatch run.sh````. The ````run.sh```` should contain the AMBER run command and the relevant modules and SBATCH headers. An example file has been provided.
 4. 2 output files will be produced. ````COLVAR```` file will have the information about the collective variables and the bias added, while ````HILLS```` file will have the details of the gaussian bias potentials that were added over the simulation.
-5. Run ```` plumed sum_hills --hills HILLS --mintozero --min 0 --max 10 --bin 200```` to get the ````fes.dat``` file that has the reweighted free energy profile. 
+5. Run ```` plumed sum_hills --hills HILLS --mintozero --min 0 --max 10 --bin 200```` to get the ````fes.dat```` file that has the reweighted free energy profile.
+
+## Gaussian Accelerated Molecular Dynamics (GaMD) 
+1. To run GaMD on AMBER, the following commands are required in md.in: \
+   ````igamd = 3
+ iE = 2
+ irest_gamd = 0
+ ntcmd = 1000000
+ nteb = 1000000
+ ntave = 50000
+ ntcmdprep = 200000
+ ntebprep = 200000
+ sigma0D = 6.0
+ sigma0P = 6.0 ````
      
