@@ -29,5 +29,8 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
 5. For reweighting to get the free energy surface (FES):
    a. Get weights.dat from gamd.log using the command ````awk 'NR%1==0' gamd.log | awk '{print ($8+$7)/(0.001987*300)" " $2 " " ($8+$7)}' > weights.dat````
    b. Get output.dat from rmsd.dat and rg.dat (If using 2 progress coordinates for a 2D surface) using the command ````awk 'NR==FNR{a[NR]=$2; next} {print a[FNR], $2}' rmsd.dat rg.dat > output.dat````
-   c. Run the command ````./reweight-2d.sh 50 50 0.1 0.1  output.dat 300````, where 50 50 are the cutoffs for both progress coordinates, 0.1 0.1 are the bin spacings, and 300 is 300 K. 
+   c. Run the command ````./reweight-2d.sh 50 50 0.1 0.1  output.dat 300````, where 50 50 are the cutoffs for both progress coordinates, 0.1 0.1 are the bin spacings, and 300 is 300 K.
+
+## Exercise
+After running the Metadynamics and/or GaMD simulation, write **Python codes** to read the free energy data files, and plot the free energy profiles (Hint: NumPy and Matplotlib should be enough ; use ````np.genfromtxt```` to read the files). Which simulation performs better?
      
