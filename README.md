@@ -12,5 +12,6 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
       ````
   b. ````
       nstlim = 2000000 ! perform 50000 MD steps
+      
       dt = 0.002     ! use time steps of 2fs
      ````
