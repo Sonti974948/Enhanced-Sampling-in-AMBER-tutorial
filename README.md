@@ -9,6 +9,6 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
       ````ntwx = 500   ! write coordinates every 500 steps to a trajectory file```` \
       ````ntwr = 500   ! write restart file every 500 steps to corresponding file ````
       
-   b. ````nstlim = 2000000 ! perform 2000000 MD steps````
+   b. ````nstlim = 2000000 ! perform 2000000 MD steps```` \
       ````dt = 0.002     ! use time steps of 2fs````
      
