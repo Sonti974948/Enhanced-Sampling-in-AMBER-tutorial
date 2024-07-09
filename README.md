@@ -26,9 +26,9 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
 2. To run the simulation after preparing all the files, run ````sbatch run.sh````. The ````run.sh```` should contain the AMBER run command and the relevant modules and SBATCH headers. An example file has been provided.
 3. 2 GaMD output files will be produced. ````gamd.log```` is the file that stores all the potential energy information through the simulation, and ````gamd-restart.dat```` are the [GaMD parameters](https://pubs.acs.org/doi/10.1021/acs.jctc.5b00436) that the simulation uses.
 4. Run the command ````cpptraj -i analysis.cpptraj```` to get the ````rmsd.dat```` and/or ````rg.dat```` (Radius of gyration) information from the simulation. You have to do ````conda activate AmberTools23```` in order to access the ````cpptraj```` command.
-5. For reweighting to get the free energy surface (FES):
-   a. Get weights.dat from gamd.log using the command ````awk 'NR%1==0' gamd.log | awk '{print ($8+$7)/(0.001987*300)" " $2 " " ($8+$7)}' > weights.dat````
-   b. Get output.dat from rmsd.dat and rg.dat (If using 2 progress coordinates for a 2D surface) using the command ````awk 'NR==FNR{a[NR]=$2; next} {print a[FNR], $2}' rmsd.dat rg.dat > output.dat````
+5. For reweighting to get the free energy surface (FES): \
+   a. Get weights.dat from gamd.log using the command ````awk 'NR%1==0' gamd.log | awk '{print ($8+$7)/(0.001987*300)" " $2 " " ($8+$7)}' > weights.dat```` \
+   b. Get output.dat from rmsd.dat and rg.dat (If using 2 progress coordinates for a 2D surface) using the command ````awk 'NR==FNR{a[NR]=$2; next} {print a[FNR], $2}' rmsd.dat rg.dat > output.dat```` \
    c. Run the command ````./reweight-2d.sh 50 50 0.1 0.1  output.dat 300````, where 50 50 are the cutoffs for both progress coordinates, 0.1 0.1 are the bin spacings, and 300 is 300 K.
 
 ## Exercise
