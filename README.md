@@ -32,5 +32,6 @@ For running AMBER metadynamics, please refer to the first half of this [video](h
    c. Run the command ````./reweight-2d.sh 50 50 0.1 0.1  output.dat 300````, where 50 50 are the cutoffs for both progress coordinates, 0.1 0.1 are the bin spacings, and 300 is 300 K.
 
 ## Exercise
-After running the Metadynamics and/or GaMD simulation, write **Python codes** to read the free energy data files, and plot the free energy profiles (Hint: NumPy and Matplotlib should be enough ; use ````np.genfromtxt```` to read the files). Which simulation performs better?
+After running the Metadynamics and/or GaMD simulation, write **Python codes** to read the free energy data files, and plot the free energy profiles (Hint: NumPy and Matplotlib should be enough ; use ````np.genfromtxt```` to read the files). \
+Which Enhanced Sampling method performs better?
      
