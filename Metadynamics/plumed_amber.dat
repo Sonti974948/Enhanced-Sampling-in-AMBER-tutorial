@@ -1,0 +1,24 @@
+#Restart the Simulation 
+RESTART
+
+# this is required to have proper atom names:
+MOLINFO STRUCTURE=chignolin.pdb
+
+#Defining the units of the simulations
+#UNITS LENGTH=A ENERGY=eV TIME=fs
+
+#Defining Collective variable
+cv: RMSD REFERENCE=chignolin.pdb TYPE=OPTIMAL
+
+#Metadynamics parameters
+metad: METAD ARG=cv SIGMA=0.4 HEIGHT=1 BIASFACTOR=10 TEMP=300 PACE=100 FILE=HILLS
+
+PRINT ARG=cv,metad.bias STRIDE=1 FILE=COLVAR 
+
+
+
+
+
+
+
+

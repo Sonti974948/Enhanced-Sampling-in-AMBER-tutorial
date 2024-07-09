@@ -1,0 +1,6 @@
+parm chignolin.prmtop
+trajin md.nc
+autoimage
+reference chignolin.pdb
+rms ca-rmsd @CA reference out rmsd6.dat mass
+radgyr ca-rg @CA out rg6.dat mass
