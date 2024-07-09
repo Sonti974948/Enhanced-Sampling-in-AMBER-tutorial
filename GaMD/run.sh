@@ -8,7 +8,7 @@
 #SBATCH --mem=50G
 #SBATCH --account=ucd187
 #SBATCH --no-requeue
-#SBATCH --mail-user=ssiddharth@ucdavis.edu
+#SBATCH --mail-user=youremail@ucdavis.edu
 #SBATCH --mail-type=ALL
 #SBATCH -t 48:00:00
 
